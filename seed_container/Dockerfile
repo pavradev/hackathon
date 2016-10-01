@@ -11,7 +11,7 @@ RUN apk add --update \
 COPY ./requirements.txt /script/
 RUN virtualenv /env && /env/bin/pip install -r /script/requirements.txt
 
-COPY ./main.py /script
+COPY ./main.py /script/
 CMD ["/env/bin/python", "/script/main.py"]
 
 WORKDIR /app
