@@ -5,7 +5,8 @@ TASK_NAME = 'java-build'
 
 
 def run_cmd(app_dir, out_dir):
-    os.system('docker run --rm -v {app_dir}:/app -w /app maven:3-jdk-8 mvn clean install'.format(app_dir = app_dir))
+    os.system('docker run --rm -v {app_dir}:/app -v $HOME/.m2:/root/.m2 '\
+              '-w /app maven:3-jdk-8 mvn clean install'.format(app_dir = app_dir))
 
 
 def main():
